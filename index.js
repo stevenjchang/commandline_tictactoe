@@ -36,23 +36,24 @@ var PlayRound = function() {
   });
 
   while (roundOver === false) {
+
     if (currentPlayer === 1) {
       console.log('Player 1, enter your move')
       prompt.get(['x', 'y'], function(err, result) {
-        console.log(' player1 placed X on: ' + result.x + ', ' + result.y)
+        console.log(' player1 placed X on: ' + result.x + ', ' + result.y);
+        board.insert(1, result.x, result.y)
       });
-      board.insert(1, result.x, result.y)
       currentPlayer = 2;
-    } else if (currentPlayer === 2){
+    } 
+    else if (currentPlayer === 2){
       console.log('Player 2, enter your move')
       prompt.get(['x', 'y'], function(err, result) {
-        console.log(' player2 placed X on: ' + result.x + ', ' + result.y)
+        console.log(' player2 placed X on: ' + result.x + ', ' + result.y);
+        board.insert(2, result.x, result.y)
       });
-      board.insert(2, result.x, result.y)
       currentPlayer = 1;
     }
   }
-
 }
 
 PlayRound();
